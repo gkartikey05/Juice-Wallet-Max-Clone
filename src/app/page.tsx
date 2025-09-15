@@ -1,8 +1,6 @@
 "use client";
 
 import { Header } from "../components/Header";
-import { ThemeToggle } from "../components/ThemeToggle";
-import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { useState } from "react";
 import { HelpSidebarBase } from "../components/HelpSidebarBase";
 import Image from "next/image";
@@ -10,6 +8,10 @@ import Image from "next/image";
 export default function Home() {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isBerryOpen, setIsBerryOpen] = useState(false);
+  const [isTransferDialogOpen, setIsTransferDialogOpen] = useState(false);
+  const [isDirectDialogOpen, setIsDirectDialogOpen] = useState(false);
+  const [isAchDialogOpen, setIsAchDialogOpen] = useState(false);
+  const [isEcheckDialogOpen, setIsEcheckDialogOpen] = useState(false);
   const helpContent = {
     title: "Claims Wallet Plus Help",
     description:
@@ -53,7 +55,7 @@ export default function Home() {
           </p>
         </div>
         {/* Wallet Card Section */}
-        <div className="flex justify-center mb-1">
+        <div className="flex justify-center mb-12">
           <div
             className="bg-gradient-to-r from-[#2563eb] to-[#4f46e5] text-white rounded-2xl shadow-2xl p-14 w-full max-w-5xl h-[400px] relative flex flex-col justify-center"
             style={{ boxShadow: "0 8px 32px 0 rgba(60,80,220,0.18)" }}
@@ -88,7 +90,10 @@ export default function Home() {
                   Claim #CLM-2024-0078
                 </div>
               </div>
-              <button className="bg-[#6366f1] hover:bg-[#4f46e5] text-white rounded-xl cursor-pointer px-6 py-3 flex items-center gap-2 font-semibold shadow transition">
+              <button
+                className="bg-[#6366f1] hover:bg-[#4f46e5] text-white rounded-xl cursor-pointer px-6 py-3 flex items-center gap-2 font-semibold shadow transition"
+                onClick={() => setIsTransferDialogOpen(true)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -158,13 +163,13 @@ export default function Home() {
           </div>
         </div>
         {/* Payment Method Cards Section */}
-        <div className="mb-14">
-          <h2 className="text-2xl font-bold text-center text-blue-700 dark:text-blue-400 mb-6">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-center text-blue-700 dark:text-blue-400 mb-12">
             Select Payment Method
           </h2>
-          <div className="flex flex-col gap-6 items-start w-full max-w-5xl mx-auto">
+          <div className="flex flex-col gap-10 items-start w-full max-w-5xl mx-auto">
             {/* Virtual Mastercard */}
-            <div className="w-full max-w-full border rounded-xl shadow-sm p-6 flex items-center gap-6 bg-white dark:bg-gray-900 relative">
+            <div className="w-full max-w-full border rounded-xl shadow-sm p-10 flex items-center gap-6 bg-white dark:bg-gray-900 relative">
               <div className="flex-none">
                 <div className="bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl p-4 w-40 h-28 flex flex-col justify-between">
                   <span className="text-lg font-bold text-white">JUICE</span>
@@ -189,14 +194,17 @@ export default function Home() {
                   that can be used anywhere online or added to your mobile
                   wallet.
                 </div>
-                <button className="text-blue-600 cursor-pointer hover:underline font-medium">
+                <button
+                  className="text-blue-600 cursor-pointer hover:underline font-medium"
+                  onClick={() => setIsTransferDialogOpen(true)}
+                >
                   Select Virtual Card &rarr;
                 </button>
               </div>
             </div>
             {/* Direct to Visa/Mastercard & ACH to Bank */}
             <div className="flex flex-col md:flex-row gap-6 w-full max-w-full">
-              <div className="flex-1 border rounded-xl shadow-sm p-6 bg-white dark:bg-gray-900 flex flex-col justify-between">
+              <div className="flex-1 border rounded-xl shadow-sm p-10 bg-white dark:bg-gray-900 flex flex-col justify-between">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="bg-green-100 text-green-700 p-2 rounded-full">
                     <svg
@@ -222,12 +230,15 @@ export default function Home() {
                   <span className="text-xs text-gray-500">
                     &#128337; 10-30 minutes
                   </span>
-                  <button className="text-blue-600 cursor-pointer hover:underline font-medium self-end">
+                  <button
+                    className="text-blue-600 cursor-pointer hover:underline font-medium self-end"
+                    onClick={() => setIsDirectDialogOpen(true)}
+                  >
                     Select &rarr;
                   </button>
                 </div>
               </div>
-              <div className="flex-1 border rounded-xl shadow-sm p-6 bg-white dark:bg-gray-900 flex flex-col justify-between">
+              <div className="flex-1 border rounded-xl shadow-sm p-10 bg-white dark:bg-gray-900 flex flex-col justify-between">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="bg-gray-100 text-gray-700 p-2 rounded-full">
                     <svg
@@ -253,14 +264,17 @@ export default function Home() {
                   <span className="text-xs text-gray-500">
                     &#128337; 1-3 business days
                   </span>
-                  <button className="text-blue-600 cursor-pointer hover:underline font-medium self-end">
+                  <button
+                    className="text-blue-600 cursor-pointer hover:underline font-medium self-end"
+                    onClick={() => setIsAchDialogOpen(true)}
+                  >
                     Select &rarr;
                   </button>
                 </div>
               </div>
             </div>
             {/* eCheck */}
-            <div className="w-full max-w-[49%] border rounded-xl shadow-sm p-6 flex items-center gap-6 bg-white dark:bg-gray-900">
+            <div className="w-full max-w-[49%] border rounded-xl shadow-sm p-10 flex items-center gap-6 bg-white dark:bg-gray-900">
               <div className="flex-1">
                 <span className="font-bold text-lg text-gray-900 dark:text-white">
                   eCheck
@@ -272,7 +286,10 @@ export default function Home() {
                   <span className="text-xs text-gray-500">
                     &#128337; 5-7 business days
                   </span>
-                  <button className="text-blue-600 cursor-pointer hover:underline font-medium">
+                  <button
+                    className="text-blue-600 cursor-pointer hover:underline font-medium"
+                    onClick={() => setIsEcheckDialogOpen(true)}
+                  >
                     Select &rarr;
                   </button>
                 </div>
@@ -281,7 +298,7 @@ export default function Home() {
           </div>
         </div>
         {/* Recent Transactions Table */}
-        <div className="mb-14 w-full max-w-5xl mx-auto">
+        <div className="mb-12 w-full max-w-5xl mx-auto">
           <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-6">
             Recent Transactions
           </h2>
@@ -289,78 +306,78 @@ export default function Home() {
             <table className="min-w-full bg-white dark:bg-gray-900 rounded-xl shadow-sm">
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Date
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Description
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Amount
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Status
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Method
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-100 dark:border-gray-800">
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     2024-03-15
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Home Depot Purchase
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     $250.00
                   </td>
-                  <td className="px-4 py-3 text-sm">
+                  <td className="px-4 py-4 text-sm">
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
                       Completed
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Virtual Card
                   </td>
                 </tr>
                 <tr className="border-b border-gray-100 dark:border-gray-800">
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     2024-03-14
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Lowes Hardware
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     $175.50
                   </td>
-                  <td className="px-4 py-3 text-sm">
+                  <td className="px-4 py-4 text-sm">
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
                       Completed
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Virtual Card
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     2024-03-13
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Claim Payment
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     $5,000.00
                   </td>
-                  <td className="px-4 py-3 text-sm">
+                  <td className="px-4 py-4 text-sm">
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
                       Completed
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                     Deposit
                   </td>
                 </tr>
@@ -370,7 +387,7 @@ export default function Home() {
         </div>
 
         {/* Info Cards Section */}
-        <div className="mb-14 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mb-12 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm p-6 flex flex-col items-center text-center">
             <span className="bg-blue-100 text-blue-700 p-3 rounded-full mb-3">
               <svg
@@ -512,7 +529,7 @@ export default function Home() {
                 Berry Assistant
                 <div className="text-xs font-normal mt-1">Juice Financial</div>
                 <button
-                  className="absolute top-4 right-4 text-white hover:text-gray-200 text-xl"
+                  className="absolute top-4 right-4 text-white hover:text-gray-200 text-2xl"
                   aria-label="Close"
                   onClick={() => setIsBerryOpen(false)}
                 >
@@ -581,6 +598,428 @@ export default function Home() {
         onClose={() => setIsHelpOpen(false)}
         content={helpContent}
       />
+      {/* Transfer Dialog Component */}
+      {isTransferDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+              onClick={() => setIsTransferDialogOpen(false)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+              <h2 className="text-xl font-bold text-blue-700">
+                Transfer to Virtual Card
+              </h2>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 1v22M19 5H5" />
+              </svg>
+              <div>
+                <div className="text-xs text-gray-500">Available Balance</div>
+                <div className="text-2xl font-bold text-blue-700">$4,750</div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Transfer Amount
+              </label>
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="$ 0.00"
+              />
+            </div>
+            <div className="mb-6 space-y-1">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
+                Available immediately
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
+                Secure, encrypted transfer
+              </div>
+            </div>
+            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+              Transfer Funds
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+      {/* Direct to Visa/Mastercard Dialog Component */}
+      {isDirectDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+              onClick={() => setIsDirectDialogOpen(false)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+              <h2 className="text-xl font-bold text-blue-700">
+                Transfer to Direct to Visa/Mastercard
+              </h2>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 1v22M19 5H5" />
+              </svg>
+              <div>
+                <div className="text-xs text-gray-500">Available Balance</div>
+                <div className="text-2xl font-bold text-blue-700">$4,750</div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Transfer Amount
+              </label>
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="$ 0.00"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Card Number
+              </label>
+              <input
+                type="text"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Card number"
+              />
+            </div>
+            <div className="mb-4 flex gap-2">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Expiration Date
+                </label>
+                <input
+                  type="text"
+                  className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="MM/YY"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Zip Code
+                </label>
+                <input
+                  type="text"
+                  className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Billing zip code"
+                />
+              </div>
+            </div>
+            <div className="mb-6 space-y-1">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full"></span>
+                Typically takes 10-30 minutes
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
+                Secure, encrypted transfer
+              </div>
+            </div>
+            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+              Transfer Funds
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+      {/* ACH to Bank Dialog Component */}
+      {isAchDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+              onClick={() => setIsAchDialogOpen(false)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+              <h2 className="text-xl font-bold text-blue-700">
+                Transfer to ACH to Bank
+              </h2>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 1v22M19 5H5" />
+              </svg>
+              <div>
+                <div className="text-xs text-gray-500">Available Balance</div>
+                <div className="text-2xl font-bold text-blue-700">$4,750</div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Transfer Amount
+              </label>
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="$ 0.00"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Bank Name
+              </label>
+              <input
+                type="text"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Enter bank name"
+              />
+            </div>
+            <div className="mb-4 flex gap-2">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Routing Number
+                </label>
+                <input
+                  type="text"
+                  className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="9 digits"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Account Number
+                </label>
+                <input
+                  type="text"
+                  className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Account number"
+                />
+              </div>
+            </div>
+            <div className="mb-6 space-y-1">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full"></span>
+                Processing time: 1-3 business days
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
+                Secure, encrypted transfer
+              </div>
+            </div>
+            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+              Transfer Funds
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+      {/* eCheck Dialog Component */}
+      {isEcheckDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+              onClick={() => setIsEcheckDialogOpen(false)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+              <h2 className="text-xl font-bold text-blue-700">
+                Transfer to eCheck
+              </h2>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2e59e8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 1v22M19 5H5" />
+              </svg>
+              <div>
+                <div className="text-xs text-gray-500">Available Balance</div>
+                <div className="text-2xl font-bold text-blue-700">$4,750</div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Transfer Amount
+              </label>
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="$ 0.00"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Mailing Address
+              </label>
+              <textarea
+                className="w-full border rounded-lg px-3 py-2 text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Enter your mailing address"
+                rows={2}
+              />
+            </div>
+            <div className="mb-6 space-y-1">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full"></span>
+                Delivery time: 5-7 business days
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
+                Secure, encrypted transfer
+              </div>
+            </div>
+            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+              Transfer Funds
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

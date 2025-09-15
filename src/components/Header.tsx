@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -170,7 +172,7 @@ export function Header() {
             <Image
               src="https://juiceclaims.com/Juice-2024-Logo-2000x800.png"
               alt="Juice"
-              width={100}
+              width={80}
               height={100}
               className="h-8 hidden dark:block"
               priority
