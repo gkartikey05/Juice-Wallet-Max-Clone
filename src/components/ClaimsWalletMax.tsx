@@ -292,9 +292,16 @@ export function ClaimsWalletMax() {
                     className="w-full h-full bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 flex flex-col text-left gap-4 relative overflow-hidden group"
                   >
                     <div className="flex items-center gap-3 mb-1">
-                      <div className={`p-2 rounded-full bg-${method.id === 'direct-card' ? 'green' : method.id === 'ach' ? 'purple' : 'amber'}-50 dark:bg-${method.id === 'direct-card' ? 'green' : method.id === 'ach' ? 'purple' : 'amber'}-900/30 text-${method.id === 'direct-card' ? 'green' : method.id === 'ach' ? 'purple' : 'amber'}-600 dark:text-${method.id === 'direct-card' ? 'green' : method.id === 'ach' ? 'purple' : 'amber'}-400`}>
-                        <method.icon className="h-5 w-5" />
-                      </div>
+                                  {/* Use static class mappings so Tailwind can generate dark variants */}
+                                  <div className={
+                                    method.id === 'direct-card'
+                                      ? 'p-2 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400'
+                                      : method.id === 'ach'
+                                      ? 'p-2 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
+                                      : 'p-2 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
+                                  }>
+                                    <method.icon className="h-5 w-5" />
+                                  </div>
                       <h3 className="font-bold">{method.name}</h3>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">

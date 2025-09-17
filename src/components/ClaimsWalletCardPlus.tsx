@@ -17,7 +17,7 @@ export function ClaimsWalletCardPlus({
 }: ClaimsWalletCardPlusProps) {
   return (
     <motion.div 
-      className={`bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-xl p-7 text-white relative overflow-hidden ${className}`}
+      className={`bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-700 rounded-xl shadow-xl p-7 text-white dark:text-white relative overflow-hidden ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

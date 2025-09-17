@@ -12,6 +12,19 @@
   --accent-hover: #1e40af; /* blue-700 */
 }
 
+/* Chat bubble / icon colors */
+:root {
+  --chat-bg: #f7f9ff;
+  --chat-inner: #ffffff;
+  --chat-accent: #017bfd;
+}
+
+html.dark {
+  --chat-bg: #071129;
+  --chat-inner: #0b1220;
+  --chat-accent: #60a5fa;
+}
+
 /* CSS variables are defined on :root and `html.dark` above. */
 
 /* Dark theme is controlled via the `dark` class on <html> */

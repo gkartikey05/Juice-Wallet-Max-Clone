@@ -46,7 +46,7 @@ export default function Home() {
             height={1000}
             className="mx-auto mt-12 mb-8 w-48 h-auto"
           />
-          <h1 className="text-5xl font-extrabold text-[#2e59e8] mb-4 tracking-tight">
+          <h1 className="text-5xl font-extrabold text-blue-600 mb-4 tracking-tight">
             Claims Wallet Max
           </h1>
           <p className="text-lg px-40 mx-20 text-gray-600 dark:text-gray-300">
@@ -57,7 +57,7 @@ export default function Home() {
         {/* Wallet Card Section */}
         <div className="flex justify-center mb-12">
           <div
-            className="bg-gradient-to-r from-[#2563eb] to-[#4f46e5] text-white rounded-2xl shadow-2xl p-14 w-full max-w-5xl h-[400px] relative flex flex-col justify-center"
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-2xl p-14 w-full max-w-5xl h-[400px] relative flex flex-col justify-center"
             style={{ boxShadow: "0 8px 32px 0 rgba(60,80,220,0.18)" }}
           >
             <div className="flex justify-between items-center mb-4">
@@ -82,7 +82,7 @@ export default function Home() {
                       d="M15 13h6v6a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v2"
                     />
                   </svg>
-                  <span className="text-2xl font-extrabold bg-gradient-to-r from-[#00a8ed] to-[#4529d2] bg-clip-text text-transparent">
+                  <span className="text-2xl font-extrabold bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text text-transparent">
                     Your Claims Wallet
                   </span>
                 </div>
@@ -463,7 +463,7 @@ export default function Home() {
         </div>
       </main>
       {/* Footer Section */}
-  <footer className="footer-always-light bg-[#f9fafb] dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 py-8 mt-8">
+  <footer className="footer-always-light bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 py-8 mt-8">
         <div className="container mx-auto px-4 flex flex-col items-center text-center gap-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <span className="text-gray-600 dark:text-gray-400">
@@ -501,7 +501,7 @@ export default function Home() {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           aria-label="Open Berry Assistant"
-          className="bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg w-16 h-16 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 rounded-full shadow-lg w-16 h-16 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
           onClick={() => setIsBerryOpen(true)}
         >
           {/* Bird SVG Icon */}
@@ -512,13 +512,14 @@ export default function Home() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="20" cy="20" r="20" fill="#fff" />
+            <circle cx="20" cy="20" r="20" fill="currentColor" className="text-white dark:text-black" />
             <path
               d="M12 28c2-6 8-10 16-8-2-4-6-6-10-6-6 0-10 4-10 10 0 2 2 4 4 4z"
-              fill="#3b82f6"
+              fill="currentColor"
+              className="text-blue-500 dark:text-blue-300"
             />
-            <ellipse cx="24" cy="18" rx="2" ry="1.5" fill="#fff" />
-            <circle cx="24" cy="18" r="0.5" fill="#3b82f6" />
+            <ellipse cx="24" cy="18" rx="2" ry="1.5" fill="currentColor" className="text-white dark:text-black" />
+            <circle cx="24" cy="18" r="0.5" fill="currentColor" className="text-blue-500 dark:text-blue-300" />
           </svg>
         </button>
         {isBerryOpen && (
@@ -601,7 +602,7 @@ export default function Home() {
       {/* Transfer Dialog Component */}
       {isTransferDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
-          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
               aria-label="Close"
@@ -609,13 +610,13 @@ export default function Home() {
             >
               &times;
             </button>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -627,13 +628,13 @@ export default function Home() {
                 Transfer to Virtual Card
               </h2>
             </div>
-            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -667,7 +668,7 @@ export default function Home() {
                 Secure, encrypted transfer
               </div>
             </div>
-            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+            <button className="w-full bg-gray-200 dark:bg-gray-700 hover:bg-blue-600 hover:dark:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
               Transfer Funds
               <svg
                 width="20"
@@ -688,7 +689,7 @@ export default function Home() {
       {/* Direct to Visa/Mastercard Dialog Component */}
       {isDirectDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
-          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
               aria-label="Close"
@@ -696,13 +697,13 @@ export default function Home() {
             >
               &times;
             </button>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -714,13 +715,13 @@ export default function Home() {
                 Transfer to Direct to Visa/Mastercard
               </h2>
             </div>
-            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -786,7 +787,7 @@ export default function Home() {
                 Secure, encrypted transfer
               </div>
             </div>
-            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+            <button className="w-full bg-gray-200 dark:bg-gray-700 hover:bg-blue-600 hover:dark:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
               Transfer Funds
               <svg
                 width="20"
@@ -807,7 +808,7 @@ export default function Home() {
       {/* ACH to Bank Dialog Component */}
       {isAchDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
-          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
               aria-label="Close"
@@ -815,13 +816,13 @@ export default function Home() {
             >
               &times;
             </button>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -833,13 +834,13 @@ export default function Home() {
                 Transfer to ACH to Bank
               </h2>
             </div>
-            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6">
+            <div className="bg-blue-50 rounded-lg p-4 flex items-center gap-3 mb-6 text-blue-700 dark:text-blue-400">
               <svg
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#2e59e8"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -905,7 +906,7 @@ export default function Home() {
                 Secure, encrypted transfer
               </div>
             </div>
-            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+            <button className="w-full bg-gray-200 dark:bg-gray-700 hover:bg-blue-600 hover:dark:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
               Transfer Funds
               <svg
                 width="20"
@@ -926,7 +927,7 @@ export default function Home() {
       {/* eCheck Dialog Component */}
       {isEcheckDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
-          <div className="bg-white rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-[400px] max-w-full p-8 relative">
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
               aria-label="Close"
@@ -1002,7 +1003,7 @@ export default function Home() {
                 Secure, encrypted transfer
               </div>
             </div>
-            <button className="w-full bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-700 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+            <button className="w-full bg-gray-200 dark:bg-gray-700 hover:bg-blue-600 hover:dark:bg-blue-600 hover:text-white text-gray-700 dark:text-gray-200 font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
               Transfer Funds
               <svg
                 width="20"

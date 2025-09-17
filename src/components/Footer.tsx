@@ -6,10 +6,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-  <footer
-    className="footer-always-light"
-    style={{ backgroundColor: '#f3f6f9', borderTop: '1px solid #e6eef6', color: '#334155' }}
-  >
+  <footer className="footer-always-light">
       <div className="max-w-4xl mx-auto px-4 py-10 text-center">
         {/* Language switcher centered like the screenshot */}
         <div className="flex justify-center mb-4">
