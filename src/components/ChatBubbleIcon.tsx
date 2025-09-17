@@ -15,26 +15,12 @@ export function ChatBubbleIcon({
       <defs>
         <style>
           {`
-          .st0, .st1 {
-            fill: none;
-          }
-          .st2 {
-            fill: #f7f9ff;
-          }
-          .st3 {
-            fill: #fff;
-            stroke-width: 5px;
-          }
-          .st3, .st1 {
-            stroke: #017bfd;
-            stroke-linejoin: round;
-          }
-          .st4 {
-            fill: #017bfd;
-          }
-          .st1 {
-            stroke-width: 6px;
-          }
+          .st0, .st1 { fill: none; }
+          .st2 { fill: var(--chat-bg); }
+          .st3 { fill: var(--chat-inner); stroke-width: 5px; }
+          .st3, .st1 { stroke: var(--chat-accent); stroke-linejoin: round; }
+          .st4 { fill: var(--chat-accent); }
+          .st1 { stroke-width: 6px; }
           `}
         </style>
       </defs>
