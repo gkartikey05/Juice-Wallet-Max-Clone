@@ -6,34 +6,39 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[#F2F4F7] text-gray-700 border-t border-gray-200 dark:border-gray-700">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center gap-6">
-          <div className="flex items-center gap-4">
+  <footer
+    className="footer-always-light"
+    style={{ backgroundColor: '#f3f6f9', borderTop: '1px solid #e6eef6', color: '#334155' }}
+  >
+      <div className="max-w-4xl mx-auto px-4 py-10 text-center">
+        {/* Language switcher centered like the screenshot */}
+        <div className="flex justify-center mb-4">
+          <div className="inline-flex items-center text-sm text-gray-600">
             <LanguageSwitcher />
           </div>
-          <div className="flex flex-col items-center gap-6">
-            <div className="text-center">
-              <p className="text-sm mb-4">
-                Juice is not a bank. Banking services are provided by First Century Bank, N.A., Member FDIC, pursuant to a license from Mastercard International.
-              </p>
-              <p className="text-sm mb-4">
-                For customer service please call Juice: (855)-687-2114.
-              </p>
-              <div className="flex items-center justify-center gap-4 text-sm">
-                <a href="/privacy" className="hover:text-blue-600">Privacy Policy</a>
-                <span className="text-gray-400">|</span>
-                <a href="/legal" className="hover:text-blue-600">Terms of Service</a>
-                <span className="text-gray-400">|</span>
-                <a href="/cookie-policy" className="hover:text-blue-600">Cookie Policy</a>
-                <span className="text-gray-400">|</span>
-                <a href="/sitemap" className="hover:text-blue-600">Sitemap</a>
-              </div>
-              <p className="text-sm mt-4">
-                © 2025 Juice Financial. All rights reserved. Juice Insurance v1.3.0
-              </p>
-            </div>
+        </div>
+
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm text-gray-600 mb-2">
+            Juice is not a bank. Banking services are provided by First Century Bank, N.A., Member FDIC, pursuant to a license from Mastercard International.
+          </p>
+          <p className="text-sm text-gray-600 mb-4">
+            For customer service please call Juice: (855)-687-2114.
+          </p>
+
+          <div className="flex items-center justify-center gap-3 text-sm mb-4">
+            <a href="/privacy" className="text-blue-600 hover:text-blue-700">Privacy Policy</a>
+            <span className="text-gray-400">|</span>
+            <a href="/legal" className="text-blue-600 hover:text-blue-700">Terms of Service</a>
+            <span className="text-gray-400">|</span>
+            <a href="/cookie-policy" className="text-blue-600 hover:text-blue-700">Cookie Policy</a>
+            <span className="text-gray-400">|</span>
+            <a href="/sitemap" className="text-blue-600 hover:text-blue-700">Sitemap</a>
           </div>
+
+          <p className="text-sm text-gray-500">
+            © 2025 Juice Financial. All rights reserved. Juice Insurance v1.3.0
+          </p>
         </div>
       </div>
     </footer>

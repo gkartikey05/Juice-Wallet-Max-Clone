@@ -114,7 +114,6 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
         stiffness: 400,
         damping: 40
       }
@@ -123,7 +122,6 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       x: "100%",
       opacity: 0,
       transition: {
-        type: "spring",
         stiffness: 400,
         damping: 40
       }
@@ -134,15 +132,13 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
     open: {
       opacity: 1,
       transition: {
-        duration: 0.2,
-        ease: "easeOut"
+        duration: 0.2
       }
     },
     closed: {
       opacity: 0,
       transition: {
-        duration: 0.2,
-        ease: "easeIn"
+        duration: 0.2
       }
     }
   };

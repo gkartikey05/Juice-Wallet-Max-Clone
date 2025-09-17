@@ -34,7 +34,7 @@ export default function Home() {
     ],
   };
   return (
-    <div className="min-h-screen bg-[#f9fafb] dark:bg-gray-950 flex flex-col">
+  <div className="min-h-screen bg-white dark:bg-gray-950 flex flex-col">
       <Header />
       <main className="flex-1 container mx-auto px-4 pt-24 pb-8">
         {/* Claims Wallet Max Title & Description */}
@@ -91,7 +91,7 @@ export default function Home() {
                 </div>
               </div>
               <button
-                className="bg-[#6366f1] hover:bg-[#4f46e5] text-white rounded-xl cursor-pointer px-6 py-3 flex items-center gap-2 font-semibold shadow transition"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl cursor-pointer px-6 py-3 flex items-center gap-2 font-semibold shadow transition"
                 onClick={() => setIsTransferDialogOpen(true)}
               >
                 <svg
@@ -463,7 +463,7 @@ export default function Home() {
         </div>
       </main>
       {/* Footer Section */}
-      <footer className="bg-[#f9fafb] dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 py-8 mt-8">
+  <footer className="footer-always-light bg-[#f9fafb] dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 py-8 mt-8">
         <div className="container mx-auto px-4 flex flex-col items-center text-center gap-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <span className="text-gray-600 dark:text-gray-400">

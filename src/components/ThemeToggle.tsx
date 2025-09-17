@@ -10,8 +10,28 @@ interface ThemeToggleProps {
 
 function getPreferredTheme(): "light" | "dark" {
   if (typeof window === "undefined") return "light";
-  const persisted = window.localStorage.getItem("theme");
-  if (persisted === "light" || persisted === "dark") return persisted;
+  // 1. persisted user preference
+  try {
+    const persisted = window.localStorage.getItem("theme");
+    if (persisted === "light" || persisted === "dark") return persisted;
+  } catch {
+    // ignore private mode/localStorage errors
+  }
+
+  // 2. check documentElement class (useful if server-side rendered or set by other scripts)
+  if (window.document?.documentElement?.classList?.contains("dark")) {
+    return "dark";
+  }
+
+  // 3. fallback to system preference
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+  } catch {
+    // ignore
+  }
+
   return "light";
 }
 
@@ -23,8 +43,13 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   // Apply theme to documentElement and persist
   React.useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
+    // Tailwind dark mode is configured with `darkMode: 'class'` so only toggle `dark` class.
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
     try {
       window.localStorage.setItem("theme", theme);
     } catch {

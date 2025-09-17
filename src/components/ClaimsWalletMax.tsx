@@ -44,6 +44,7 @@ export function ClaimsWalletMax() {
   const [transferSuccess, setTransferSuccess] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
   const [modalPaymentMethod, setModalPaymentMethod] = useState('');
+  const [copied, setCopied] = useState(false);
   
   // Wallet and card data
   const walletData = {
@@ -184,7 +185,7 @@ export function ClaimsWalletMax() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F9FF] dark:bg-gray-950">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
       <Header />
 
       <main className="flex-grow pt-24">
